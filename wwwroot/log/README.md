@@ -1,0 +1,1 @@
+用于nginx存放日志, 对应容器内目录是 `/wwwroot/log`
