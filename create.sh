@@ -6,5 +6,5 @@ docker run --name web-proxy \
     --mount type=bind,source="$(pwd)/conf.d",target=/etc/nginx/conf.d/ \
     --mount type=bind,source="$(pwd)/wwwroot",target=/wwwroot \
     -p 10003:10003 \
-    -v /root/software:/app/software \
-    nginx
+    -v $PWD:/app \
+    nginx:1.20-alpine
