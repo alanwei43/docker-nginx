@@ -5,6 +5,8 @@ docker run --name web-proxy \
     -p 443:443 \
     --mount type=bind,source="$(pwd)/conf.d",target=/etc/nginx/conf.d/ \
     --mount type=bind,source="$(pwd)/wwwroot",target=/wwwroot \
-    -p 10003:10003 \
+    --mount type=bind,source="$(pwd)/nginx.conf",target=/etc/nginx.conf \
+    --add-host=host.docker.internal:host-gateway \
+    --restart=unless-stopped \
     -v $PWD:/app \
-    nginx:1.20-alpine
+    nginx:1.20.2-alpine
